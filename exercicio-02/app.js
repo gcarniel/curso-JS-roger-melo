@@ -17,6 +17,7 @@
 
 Utilize os espaços entre os comentários abaixo para executar os códigos dos exercícios. Inclusive este.
 */
+// console.log('Grandes poderes trazem grandes responsabilidades.')
 
 
 
@@ -29,6 +30,11 @@ Utilize os espaços entre os comentários abaixo para executar os códigos dos e
 - Declare uma constante "myFavoriteTom" que recebe nome, espaço, e sobrenome do Tom que você mais gosta;
 - Exiba a "myFavoriteTom" no console do browser.
 */
+const tom = 'Tom'
+const firstTom = 'Hanks'
+const secontTom = 'Cruise'
+const myFavoriteTom = tom + ' ' + secontTom
+// console.log(myFavoriteTom)
 
 
 
@@ -40,6 +46,9 @@ Utilize os espaços entre os comentários abaixo para executar os códigos dos e
 - As letras não devem ser digitadas manualmente;
 - Exiba a "js" no console do browser;
 */
+const programmingLanguage = 'JavaScript'
+const js = programmingLanguage[0] + programmingLanguage[programmingLanguage.indexOf('S')]
+// console.log(js)
 
 
 
@@ -50,15 +59,16 @@ Utilize os espaços entre os comentários abaixo para executar os códigos dos e
 - As iniciais não devem ser digitadas manualmente;
 - Exiba a "mdn" no console do browser;
 */
-
 const mozilla = 'Mozilla Developer Network'
+const mdn = mozilla[0] + mozilla[mozilla.indexOf(' ')+1] + mozilla[mozilla.lastIndexOf(' ')+1]
+// console.log(mdn)
 
 /*
 07 - Comente o console.log acima, e,
 
 - Exiba no console do browser a quantidade de caracteres que a constante "programmingLanguage" possui;
 */
-
+// console.log(programmingLanguage.length)
 
 
 /*
@@ -68,8 +78,8 @@ const mozilla = 'Mozilla Developer Network'
 - Ao invés de inserir manualmente a posição do último caractere, faça com que a obtenção da última letra funcione para qualquer palavra que a "randomWord" receber;
 - Dica: utilize a propriedade ".length".
 */
-
 let randomWord = 'Araponga'
+// console.log(randomWord[randomWord.length-1])
 
 /*
 09 - Comente o console.log acima, e,
@@ -78,8 +88,9 @@ let randomWord = 'Araponga'
 - Não modifique a string da "summerMessage";
 - Não digite a nova string manualmente.
 */
-
 const summerMessage = 'O VERÃO CHEGA NESTE FIM DE SEMANA'
+const summerMessageLower = summerMessage.toLowerCase()
+// console.log(summerMessageLower)
 
 /*
 10 - Comente o console.log acima, e,
@@ -88,15 +99,16 @@ const summerMessage = 'O VERÃO CHEGA NESTE FIM DE SEMANA'
 - Não modifique a string da "winterMessage";
 - Não digite a nova string manualmente.
 */
-
 const winterMessage = 'o inverno está chegando'
+const winterMessageUpper = winterMessage.toUpperCase()
+// console.log(winterMessageUpper)
 
 /*
 11 - Comente o console.log acima, e,
 
 - Exiba, no console, o index do caractere "v" da "winterMessage";
 */
-
+// console.log(winterMessage.indexOf('v'))
 
 
 /*
@@ -104,6 +116,7 @@ const winterMessage = 'o inverno está chegando'
 
 - Exiba, no console, o index da última ocorrência do caractere "n" da "winterMessage".
 */
+// console.log(winterMessage.lastIndexOf('n'))
 
 
 
@@ -113,8 +126,8 @@ const winterMessage = 'o inverno está chegando'
 - Após a const "harryPotterAuthor" (abaixo), exiba no console a parte "J.K." da string "harryPotterAuthor";
 - Não digite a string "J.K." manualmente;
 */
-
 const harryPotterAuthor = 'J.K. Rowling'
+// console.log(harryPotterAuthor.slice(0,4))
 
 /*
 14 - Comente o console.log acima, e,
@@ -123,8 +136,9 @@ const harryPotterAuthor = 'J.K. Rowling'
 - Atribua à "realBestMovie" a mesma string da "bestMovie", mas substituindo o nome do filme para "Moonlight";
 - Exiba a "realBestMovie" no console.
 */
-
 const bestMovie = 'E o Oscar de melhor filme vai para: "La la land"!'
+const realBestMovie = bestMovie.replace('filme', 'Moonlight')
+// console.log(realBestMovie)
 
 /*
 15 - Comente o console.log acima, e,
@@ -132,6 +146,8 @@ const bestMovie = 'E o Oscar de melhor filme vai para: "La la land"!'
 - Abaixo deste comentário, armazene o resto de 10 dividido por 3 em uma constante "reminder";
 - Exiba a reminder no console. O resultado deve ser 1;
 */
+const reminder = 10 % 3
+// console.log(reminder)
 
 
 
@@ -142,8 +158,10 @@ const bestMovie = 'E o Oscar de melhor filme vai para: "La la land"!'
 - Após o incremento, exiba a let "episodes" no console;
 - O valor exibido no console deve ser 7.
 */
-
 let episodes = 6
+episodes++
+
+// console.log(episodes)
 
 /*
 17 - Comente o console.log acima, e,
@@ -153,6 +171,8 @@ let episodes = 6
 - O valor exibido no console deve ser 6.
 */
 
+episodes--
+// console.log(episodes)
 
 
 /*
@@ -162,6 +182,8 @@ let episodes = 6
 - Após a atribuição, exiba a let "episodes" no console.
 */
 
+episodes += 4
+// console.log(episodes)
 
 
 /*
@@ -171,7 +193,8 @@ let episodes = 6
 - Insira a let "episodes" no lugar de "NUMERO_DE_EPISÓDIOS";
 - Exiba a "allEpisodes" no console.
 */
-
+const allEpisodes = ` O nº de episódios é: ${episodes}`
+// console.log(allEpisodes)
 
 
 /*
@@ -183,7 +206,7 @@ let episodes = 6
 - Não use template strings.
 */
 
-// const bookMessage = ''O Conto da Aia' é um dos livros mais vendidos da década.'
+// const bookMessage = '\'O Conto da Aia\' é um dos livros mais vendidos da década.'
 // console.log(bookMessage)
 
 /*
@@ -196,8 +219,9 @@ let episodes = 6
 - Não modifique a string da const "name";
 - Exiba a "newName" no console;
 */
-
 const name = 'walter white'
+let newName = name.replace('w', 'W')
+// console.log(newName)
 
 /*
 22 - Comente o console.log acima, e,
@@ -208,3 +232,6 @@ const name = 'walter white'
 - Não modifique a string da const "name";
 - Exiba a "newName" no console;
 */
+
+newName = `${name.replace('w', 'W')}`
+// console.log(newName)
