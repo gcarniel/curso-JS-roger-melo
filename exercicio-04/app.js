@@ -13,7 +13,7 @@
   "Minhas 3 séries favoritas são: SÉRIE_01, SÉRIE_02 e SÉRIE_03."
 */
   const my3FavoriteTVShows = ['Supernatural', 'DragonBall', 'WestWolrd']
-  const sentence = `Minhas 3 séries favoritas são: ${my3FavoriteTVShows.slice(0,2)} e ${my3FavoriteTVShows.slice(2)}.`
+  const sentence = `Minhas 3 séries favoritas são: ${my3FavoriteTVShows.join(', ').replace(', W', ' e W')}.`
   // console.log(sentence)
 
 /*
@@ -22,7 +22,7 @@
   - Exiba no console um boolean indicando se o array de séries que você criou  
     possui 3 itens.
 */
-  // console.log(my3FavoriteTVShows.length == 3)
+  // console.log(my3FavoriteTVShows.length === 3)
 
 
 /*
@@ -65,8 +65,9 @@
   "A string que a "typeSentence" armazena tem mais de NÚMERO_DE_CARACTERES  
   caracteres? BOOLEAN."
 */
-  const bool = String(typeSentence.length > 39).replace('t','T')
-  // console.log(`A string que a "typeSentence" armazena tem mais de 39 caracteres? ${bool}.`)
+  const numberToCheck = 39
+  const bool = String(typeSentence.length > numberToCheck).replace('t','T')
+  // console.log(`A string que a "typeSentence" armazena tem mais de ${numberToCheck} caracteres? ${bool}.`)
 
 
 /*
@@ -79,7 +80,7 @@
   BOOLEAN."
 */
   const falsyValues = [0, "", false, '', ``, null, undefined, NaN]
-  // console.log(`Todos os ${falsyValues.length} itens do array "falsyValues" são falsy. Inclusive o false.`)
+  // console.log(`Todos os ${falsyValues.length} itens do array "falsyValues" são falsy. Inclusive o ${falsyValues[2]}.`)
 
 /*
   07 - Comente o console.log() acima e:
@@ -108,7 +109,7 @@
 */
   const ages = [31, 82, 61, 11]
   const agesSum = ages[0] + ages[2]
-  // console.log(`A soma entre o 1º e o 3º item de "ages" é menor ou igual a 92. Essa afirmação é: ${agesSum >= 92}.`)
+  // console.log(`A soma entre o 1º e o 3º item de "ages" é menor ou igual a 92. Essa afirmação é: ${agesSum <= 92}.`)
   
 
 /*
@@ -119,7 +120,7 @@
   - Essa expressão deve resultar em false.
   - Exiba a "isNotAString" no console.
 */
-  const isNotAString = !Boolean(typeof randomTVShow) 
+  const isNotAString = typeof randomTVShow !== 'string'
   // console.log(isNotAString)
 
 
@@ -133,3 +134,4 @@
 
   const evenNumbers = [0, 2, 4, 6, 8, 10]
   // console.log(Boolean(evenNumbers.indexOf(8) +1 )) // adiciono +1 pq caso não exista indexOf retorna -1, mas -1 retorna true, então somo 1 e se não exister vai dar zero
+  // console.log(evenNumbers.indexOf(8) !== -1 )
