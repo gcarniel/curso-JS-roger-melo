@@ -23,7 +23,15 @@
     "Nem pera nem abacaxi existem no array "fruits".".
 */
 
-const fruits = ['morango', 'banana', 'mamão']
+const fruits = ['morango', 'banana', 'abacaxi', 'mamão', 'pera']
+
+// if (fruits.includes('abacaxi')){
+//   console.log(`A string "abacaxi" existe no array fruits.`)
+// }else if (fruits.includes('pera')) {
+//   console.log(`A string "pera" existe no array fruits.`)
+// }else {
+//   console.log(`Nem pera nem abacaxi existem no array "fruits".`)
+// }
 
 /*
   02
@@ -38,6 +46,18 @@ const fruits = ['morango', 'banana', 'mamão']
   lógico precisam ter a constante especificada. Exemplo: hour > x && hour < y.
 */
 
+  // const horaAtual = 12
+  // const isMorning = horaAtual >= 6 && horaAtual < 12
+  // const isAfterNoon = horaAtual >= 12 && horaAtual < 18
+
+  // if(isMorning){
+  //   console.log('Bom dia!')
+  // }else if(isAfterNoon){
+  //   console.log('Boa tarde!')
+  // }else {
+  //   console.log('Boa noite!')
+  // }
+
 /*
   03
 
@@ -51,7 +71,18 @@ const fruits = ['morango', 'banana', 'mamão']
   - Agora, teste diferentes idades para se certificar que a condição do `if`  
     também está funcionando.
 */
+  // const age = 30
+  // const isChild = age <= 7
+  // const isOlder = age >= 65
 
+  // let message = ''
+
+  // if (isChild || isOlder) {
+  //   message = 'Para você, a entrada é grátis!'
+  // }else {
+  //   message = 'A entrada é R$ 30,00.'
+  // }
+  // console.log(message)
 /*
   04
 
@@ -61,7 +92,17 @@ const fruits = ['morango', 'banana', 'mamão']
   - O resultado deve ser: [34, 46, 90, 25, 11, 89, 76].
 */
 
-const numbers = [7, 92, 34, 46, 90, 25, 11, 3, 89, 76, 99]
+// const numbers = [7, 92, 34, 46, 90, 25, 11, 3, 89, 76, 99]
+// const newArray = []
+
+// for (let i = 0; i < numbers.length; i++) {
+//   const number = numbers[i]
+//   const isNumberBetween11And90 = number >= 11 && number <= 90
+//   if (isNumberBetween11And90){
+//     newArray.push(number) //mesmo o newArray sendo uma const não da erro pq não modifico a estrutura
+//   }
+// }
+// console.log(newArray)
 
 /*
   05
@@ -76,7 +117,28 @@ const numbers = [7, 92, 34, 46, 90, 25, 11, 3, 89, 76, 99]
   "O crazyArray tem X booleans, X números e X strings."
 */
 
-const crazyArray = [true, 869, 'oi', 71, false, 83, '35', true, 397, 'js', false]
+// const crazyArray = [true, 869, 'oi', 71, false, 83, '35', true, 397, 'js', false]
+
+// let sumBool = 0
+// let sumNum = 0
+// let sumString = 0
+
+// for (let i = 0; i < crazyArray.length; i++) {
+//   const typeOfItem = typeof crazyArray[i]
+//   const isNumber = typeOfItem === 'number'
+//   const isBoolean = typeOfItem === 'boolean'
+//   const isString = typeOfItem === 'string'
+
+//   if(isNumber){
+//     sumNum++
+//   }else if (isString) {
+//     sumString++
+//   }else if (isBoolean) {
+//     sumBool++
+//   }
+// }
+// console.log(`O crazyArray tem ${sumBool} booleans, ${sumNum} números e ${sumString} strings.`)
+
 
 /*
   06
@@ -95,4 +157,21 @@ const crazyArray = [true, 869, 'oi', 71, false, 83, '35', true, 397, 'js', false
   "Numeros ímpares: XX, XX e XX. Números pares: XX, XX e XX."
 */
 
-const randomNumbers = [73, 4, 67, 10, 31, 58]
+// const randomNumbers = [73, 4, 67, 10, 31, 58]
+
+// const numbersEven = []
+// const numbersOdd = []
+
+// for (let i = 0; i < randomNumbers.length; i++) {
+//   const currentItem = randomNumbers[i]
+//   const isEven = currentItem % 2 === 0
+
+//   if (isEven) {
+//     numbersEven.push(currentItem)
+//   }else {
+//     numbersOdd.push(currentItem)
+//   }
+// }
+// const numImp = numbersOdd.join(', ').replace(', 3', ' e 3')
+// const numPar = numbersEven.join(', ').replace(', 5', ' e 5')
+// console.log(`Numeros ímpares: ${numImp}. Números pares: ${numPar}`)
