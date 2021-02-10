@@ -41,15 +41,18 @@
 
 // const randomNumbers = [59, 61, 73, 57, 35, 73, 21, 87, 43]
 // let sumNumbers = 0
+// const limit = 400
 
 // for (let i = 0; i < randomNumbers.length; i++) {
-//   const item = randomNumbers[i]
-//   sumNumbers += item
-//   if (sumNumbers > 400) {
-//     console.log(`A soma ultrapassou 400. Até aqui, o valor atual é ${sumNumbers}.`)
+//   if (sumNumbers > limit) {
+//     console.log(`A soma ultrapassou ${limit}. Até aqui, o valor atual é ${sumNumbers}.`)
 //     break
 //   }
+//   const item = randomNumbers[i]
+//   sumNumbers += item
 // }
+// console.log(sumNumbers)
+
 
 /*
   04
@@ -62,15 +65,16 @@
 
 // const sentence = ['A', 'certeza', 'dúvida', 'é', 'o', 'princípio', 'da', 'sabedoria.']
 
-// let phrase = ''
+// let newSentence = ''
 
 // for (let i = 0; i < sentence.length; i++) {
-//   if(sentence[i] === 'certeza'){
+//   const word = sentence[i]
+//   if(word === 'certeza'){
 //     continue
 //   }
-//   phrase += ' ' + sentence[i]
+//   newSentence += `${word} `
 // }
-// console.log(phrase)
+// console.log(newSentence)
 
 /*
   05
@@ -95,20 +99,29 @@
 
 // for (let i = 0; i < randomValues.length; i++) {
 //   const currentItem = randomValues[i]
-//   iterations += 1
-//   if(typeof currentItem === 'string'){
-//     first4Strings.push(currentItem)
-//     countString++
-//   }
-//   if(typeof currentItem === 'boolean'){
-//     countBool++
-//   }
+//   const isItemAString = typeof currentItem === 'string'
+//   const isItemABoolean = typeof currentItem === 'boolean'
+
 //   if(countString >= 4){
 //     break
 //   }
+
+//   if(isItemAString){
+//     first4Strings.push(currentItem)
+//     countString++
+//   }
+
+//   if(isItemABoolean){
+//     countBool++
+//   }
+
+//   iterations++
 // }
 
-// console.log(`As primeiras 4 strings são ${first4Strings.join(', ')}`)
+// const lastItem = first4Strings[first4Strings.length - 1] //pegando uma palavra dentro do array
+// const fourStrings = first4Strings.join(', ').replace(`, ${lastItem}`, ` e ${lastItem}`)
+
+// console.log(`As primeiras 4 strings são ${fourStrings}`)
 // console.log(`Até que as primeiras 4 strings fossem iteradas, ${countBool} booleans foram iterados`)
 // console.log(`O array foi iterado por ${iterations} vezes`)
 
