@@ -6,10 +6,10 @@
   - Previna que esses parâmetros recebam undefined;
   - Exiba o resultado no console, sem inserir um console.log() dentro da função.
 */
-// function multiply(number1 = 1, number2 = 1) {
+// function multiply(number1 = 0, number2 = 0) {
 //   return number1 * number2
 // }
-// const result = multiply(3,3)
+// const result = multiply(5,9)
 // console.log(result)
 
 
@@ -21,10 +21,10 @@
     2 números.
 */
 
-// const division = function (number1 = 1, number2 = 1) {
+// const divide = function (number1 = 1, number2 = 1) {
 //   return number1 / number2
 // }
-// const result = division(10,5)
+// const result = divide(10,5)
 // console.log(result)
 
 /*
@@ -40,8 +40,8 @@
   "Esta é a Xª vez que essa string é exibida."
 */
 
-// function showConsole(x = 0) {
-//   console.log(`Esta é a ${x} vez que essa string é exibida.`)
+// function showConsole(value = 'Passe um número como argumento.') {
+//   console.log(`Esta é a ${value}ª vez que essa string é exibida.`)
 // }
 
 // for (let i = 1; i <=7; i++) {
@@ -62,16 +62,17 @@
 
 // const millennialWords = ['lol', 'yolo', 'troll', 'stalkear', 'selfie', 'influencer', 'crush', 'fitness', 'hater', 'bae', 'random', 'kawaii', 'outfit', 'mood', 'fail']
  
-// function toUpper(array = []) {
+// const toUpper = function (array = []) {
 //   let newArray = []
 
 //   for (let i = 0; i < array.length; i++) {
-//     newArray.push(array[i].toUpperCase())
+//     const wordInUpperCase = array[i].toUpperCase()
+//     newArray.push(wordInUpperCase)
 //   }
 //   return newArray
 // }
-
-// console.log(toUpper(millennialWords))
+// const result = toUpper(millennialWords)
+// console.log(result)
 
 /*
   05
@@ -87,18 +88,19 @@
 // const randomNumbers = [-2, 93, 34, -1, 1, 93, 11, -7, 47, -3]
 // let countPositive = 0
 
-// function getPositive(array = []) {
-//   const lengthArray = array.length
-//   for (let i = 0; i < lengthArray; i++) {
-//     if (array[i] > 0){
-//       countPositive++
-//     }
-//   }
-//   return `O array "randomNumbers" possui ${lengthArray} números, sendo ${countPositive} positivos e ${lengthArray - countPositive}  negativos.`
+// const isPositive = function (number = 0) {
+//   return number > 0
 // }
 
-// const result = getPositive(randomNumbers)
-// console.log(result)
+
+// for (let i = 0; i < randomNumbers.length; i++) {
+//   const isPositiveNumber = isPositive(randomNumbers[i])
+//   if (isPositiveNumber){
+//     countPositive++
+//   }
+// }
+// console.log(`O array "randomNumbers" possui ${randomNumbers.length} números, sendo ${countPositive} positivos e ${randomNumbers.length - countPositive}  negativos.`)
+
 
 /*
   06
@@ -110,11 +112,14 @@
     função.
 */
 
-// function getOddNumbers(arr=[]) {
+// const getOddNumbers = function (arr = []) {
 //   let oddNumbers = []
+
 //   for (let i = 0; i < arr.length; i++) {
-//     if(arr[i] % 2 === 1) {
-//       oddNumbers.push(arr[i])
+//     const currentItem = arr[i]
+//     const isOddNumber = currentItem % 2 === 1
+//     if(isOddNumber) {
+//       oddNumbers.push(currentItem)
 //     }
 //   }
 //   return oddNumbers
@@ -160,9 +165,10 @@ const functions = [
   function () { return 'Ocidentais.' }
 ]
 
-let phrase = ''
-for (let i = 0; i< functions.length; i++) {
-  phrase += `${functions[i]()} `
-}
-console.log(phrase)
+// let phrase = ''
+// for (let i = 0; i< functions.length; i++) {
+//   const string = `${functions[i]()} `
+//   phrase += string
+// }
+// console.log(phrase)
 
