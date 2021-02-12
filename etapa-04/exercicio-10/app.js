@@ -60,12 +60,19 @@
   - Exiba a nova cor do gato no console, também utilizando a sintaxe de  
     colchetes.
 */
-  const addColorCat = color => {
-    const colorExists = []
-    colorExists.push(cat.color)
-    colorExists.push(color)
-    cat.color = colorExists
-  }
+  // const addColorCat = color => {
+  //   const colorExists = []
+  //   colorExists.push(cat.color)
+  //   colorExists.push(color)
+  //   cat.color = colorExists
+  // }
+    
+  // const changeColor = object => {
+  //   object['color'] += ` e azul`
+  // }
+
+  // changeColor(cat)
+  // console.log(cat['color'])
 
   // addColorCat('white')
   // console.log(cat.color)
@@ -97,8 +104,8 @@
     bestFriends: [],
     sound: function () {return 'auuuu'},
   }
-  // const info = () => `A soma das idades de ${cat.name} e ${dog.name} é ${cat.age + dog.age}.`
-  // console.log(info())
+  // const info = (cat, dog) => `A soma das idades de ${cat.name} e ${dog.name} é ${cat.age + dog.age}.`
+  // console.log(info(cat, dog))
 
 /*
   08
@@ -116,10 +123,9 @@ const isAnSUV = car => {
   return false
 }
 
-const isAnSUV2 = car => {
-  cars = ['Honda HR-V','Jeep Renegade','Ford EcoSport','Hyundai iX35']
-  return cars.includes(car)
-}
+const cars = ['Honda HR-V','Jeep Renegade','Ford EcoSport','Hyundai iX35']
+
+const isAnSUV2 = car => cars.includes(car)
 
 // console.log(isAnSUV('Honda Civic'))
 // console.log(isAnSUV('Ford EcoSport'))
@@ -146,8 +152,9 @@ const isAnSUV2 = car => {
       undefined: 'Representa um valor não-setado.',
       object: 'Arrays, Datas, Objetos literais, Funções, etc.',
     }
-    const valueReturned = typeof type
-    return aObject[valueReturned]
+    return aObject[type]
   }
 
-  console.log(aFunction(1))
+  console.log(aFunction('null'))
+  console.log(aFunction('undefined'))
+  console.log(aFunction('object'))
