@@ -27,9 +27,7 @@
   - Crie uma função que retorne a quantidade de caracteres que uma string  
     recebida por parâmetro possui.
 */
-  // const countCharacters = string => {
-  //   return `'${string}' tem ${string.length} caracteres.`
-  // }
+  // const countCharacters = string =>  `'${string}' tem ${string.length} caracteres.` 
   // const result = countCharacters('gabriel')
   // console.log(result)
 
@@ -43,9 +41,7 @@
 
   "CHOCOTONE E OVO DE PÁSCOA JUNTOS NO MERCADO EM PLENO FEVEREIRO"
 */
-  // const toLowerCase = string => {
-  //   return string.toLowerCase()
-  // }
+  // const toLowerCase = string => string.toLowerCase()
 
   // const result = toLowerCase('CHOCOTONE E OVO DE PÁSCOA JUNTOS NO MERCADO EM PLENO FEVEREIRO')
   // console.log(result)
@@ -56,15 +52,21 @@
   - Crie uma função que recebe 2 parâmetros: um caractere e uma string;
   - Ao ser invocada, a função deve retornar o index do caractere na string.
 */
-  // const searchCharacterInPhrase = (character, phrase) => {
-  //   const index = phrase.indexOf(character)
-  //   if(index < 0){
-  //     return `'${character}' não existe em '${phrase}'`
-  //   }else {
-  //     return `'${character}' é a ${index + 1}ª letra de '${phrase}'`
-  //   }
-  // }
-  // console.log(searchCharacterInPhrase('z','gabriel'))
+
+//   const getIndex = (character, string) => string.indexOf(character)
+
+// // pesquisa com retorno mais detalhado
+//   const searchCharacterInPhrase = (character, phrase) => {
+//     const index = phrase.indexOf(character)
+//     if(index < 0){
+//       return `'${character}' não existe em '${phrase}'`
+//     }else {
+//       return `'${character}' é a ${index + 1}ª letra de '${phrase}'`
+//     }
+//   }
+//   console.log(searchCharacterInPhrase('z','gabriel'))
+//   console.log(getIndex('g','gabriel'))
+
 
 /*
   05
@@ -72,6 +74,10 @@
   - Crie uma função que, ao ser invocada, retorna um boolean indicando se o item  
     passado por argumento existe no array (também passado por argumento).
 */
+  // // USANDO INCLUDES
+  // const isItemIncluded = (item, array = []) => array.includes(item)
+
+  // // usando INDEXOF
   // const searchItemInArray = (item, array = []) => {
   //   const index = Boolean(array.indexOf(item) + 1) //se não existe retorna -1 e para transformar false tem que ser 0, por isso somei +1
   //   return index
@@ -79,6 +85,7 @@
 
   // const people = ['maria', 'joão', 'dunha', 'mario']
   // const result = searchItemInArray('maria', people)
+  // console.log(isItemIncluded('maria', people))
   // console.log(result)
 
 /*
@@ -90,9 +97,7 @@
   // const people = ['maria', 'joão', 'dunha', 'mario']
   // const animals = ['leão', 'gato', 'cachorro']
 
-  // const concatArrays = (arr1 = [], arr2 = []) => {
-  //   return arr1.concat(arr2)
-  // }
+  // const concatArrays = (arr1 = [], arr2 = []) => arr1.concat(arr2)
 
   // const result = concatArrays(people,animals)
   // console.log(result)
@@ -105,9 +110,8 @@
 */
   // const animals = ['leão', 'gato', 'cachorro','girafa']
   // const removeLastItem = (array = []) => {
-  //   let newArray = []
-  //   newArray = array.slice(0,array.length - 1)
-  //   return newArray
+  //   array.pop()
+  //   return array
   // }
   // const result = removeLastItem(animals)
   // console.log(result)
@@ -117,7 +121,7 @@
 
   - Crie uma função que retorna se o valor passado como argumento em sua  
     invocação é null.
-*/
+*/ 
   // let emptiness
   // console.log(emptiness, 'Undefined é quando uma variável não tem valor atribuído.')
 
@@ -132,8 +136,14 @@
   //     return 'ok'
   //   }
   // }
+
+  // // simplificando
+  // const isNullSimple = value => value === null
+
   // const argumento = null
   // console.log(isNull(argumento))
+  // console.log(isNullSimple(null))
+
 /*
   09
 
@@ -143,13 +153,14 @@
   - Invoque a função que recebe um callback por parâmetro, passando como  
     argumento a função que exibe seu nome no console e veja se o nome realmente  
     foi exibido.
-*/
-    // const getMyName = () => console.log('Gabriel')
-    // const functionCallback = (callback) => {
-    //   callback()
-    // }
+// */
+//     const getMyName = () => console.log('Gabriel')
 
-    // functionCallback(getMyName)
+//     const functionCallback = (callback) => {
+//       callback()
+//     }
+
+//     functionCallback(getMyName)
 
 /*
   10
@@ -180,9 +191,13 @@
 */
 
 // const numbers = [1, 2, 3]
-// numbers.forEach((item, i, array) => {
-//   console.log(`O ${i + 1}º item do array ${array} é ${item}.`)
-// })
+// const showNumbersInfo = (item, i, array) => {
+//   const itemPosition = i + 1
+//   const items = array.join(', ')
+//   console.log(`O ${itemPosition}º item do array [${items}] é ${item}.`)
+// }
+
+// numbers.forEach(showNumbersInfo)
 
 /*
   12
@@ -200,9 +215,7 @@ let lettersCopy = []
 // }
 // console.log(lettersCopy)
 
-// letters.forEach(item => {
-//   lettersCopy.push(item)
-// })
+// letters.forEach(item =>  lettersCopy.push(item))
 // console.log(lettersCopy)
 
 /*
@@ -234,9 +247,8 @@ let lettersCopy = []
 
 // let paragraphs = ''
 
-// review.forEach(item => {
-//   paragraphs += `<p>${item}</p>`
-// })
+// const createParagraph = paragraph => paragraphs += `<p>${paragraph}</p>`
+// review.forEach(createParagraph)
 
 // section.innerHTML = paragraphs
 
@@ -261,22 +273,41 @@ let lettersCopy = []
     pessoas já mencionadas no início da mensagem).
 */
 
-    // const countLikes = (array = []) => {
-    //   const lengthArray = array.length
-    //   if (lengthArray === 0){
-    //     return 'Ninguém curtiu isso'
-    //   }else if(lengthArray === 1){
-    //     return `${array[0]} curtiu isso`
-    //   }else if(lengthArray === 2){
-    //     return `${array[0]} e ${array[1]} curtiram isso`
-    //   }else if(lengthArray === 3){
-    //     return `${array[0]}, ${array[1]} e ${array[2]} curtiram isso`
-    //   }else {
-    //     return `${array[0]}, ${array[1]} e mais ${lengthArray - 2} pessoas curtiram isso`
-    //   }
-    // }
+    const countLikes = (array = []) => {
+      const lengthArray = array.length
+      const firstName = array[0]
+      const secondName = array[1]
+      const thirdName = array[2]
 
-    // const people = ['maria', 'joão', 'dunha', 'mario']
-    // // const people = ['maria']
-    // const result = countLikes(people)
-    // console.log(result)
+      /*USANDO CASE */
+      switch (lengthArray){
+        case 0:
+          return 'Ninguém curtiu isso' 
+        case 1:
+          return `${firstName} curtiu isso`
+        case 2:
+          return `${firstName} e ${secondName} curtiram isso`
+        case 3:
+          return `${firstName}, ${secondName} e ${thirdName} curtiram isso`
+        default:
+          return `${firstName}, ${secondName} e mais ${lengthArray - 2} pessoas curtiram isso`
+      }
+      
+      /*USANDO IF*/
+      // if (lengthArray === 0){
+      //   return 'Ninguém curtiu isso' 
+      // }else if(lengthArray === 1){
+      //   return `${firstName} curtiu isso`
+      // }else if(lengthArray === 2){
+      //   return `${firstName} e ${secondName} curtiram isso`
+      // }else if(lengthArray === 3){
+      //   return `${firstName}, ${secondName} e ${thirdName} curtiram isso`
+      // }else {
+      //   return `${firstName}, ${secondName} e mais ${lengthArray - 2} pessoas curtiram isso`
+      // }
+    }
+
+    const people = ['maria', 'joão', 'dunha', 'mario']
+    // const people = ['maria']
+    const result = countLikes(people)
+    console.log(result)
