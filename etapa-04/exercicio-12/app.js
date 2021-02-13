@@ -27,8 +27,14 @@ const best2019Movies = [
   { title: 'A Vida Invisível', directedBy: 'Karim Aïnouz' }
 ]
 
-  // console.log('Segundo o site Omelete, os melhores filmes de 2019 são:')
-  // best2019Movies.forEach(movie => console.log(`${movie.title}, dirigido por ${movie.directedBy}`))
+  let messageMovie = 'Segundo o site Omelete, os melhores filmes de 2019 são:'
+
+  const getBestMovies = movie => messageMovie += `
+  -${movie.title}, dirigido por ${movie.directedBy}`
+
+  best2019Movies.forEach(getBestMovies)
+  console.log(messageMovie)
+  console.log('\n')
 
 /*
   02
@@ -64,7 +70,7 @@ const youtubeUser = {
     country: 'Brasil'
   },
   getRecentsVideos () {
-    let message = 'Vídeos recentes de Roger Melo:'
+    let message = `Vídeos recentes de ${this.name}:`
     this.videos.recentVideos.forEach(video => {
       message += `\n${video.title}`
     })
