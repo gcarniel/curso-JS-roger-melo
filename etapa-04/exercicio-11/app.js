@@ -49,17 +49,19 @@
     name: 'focus',
     brand: 'ford',
     colors: ['branco', 'preto', 'azul'],
-    isRunning (status = false) {console.log(status)},
+    isRunning: false,
     run () {
-      this.isRunning(true)
-      console.log(`O ${this.name} está em movimento`)
+      this.isRunning = true;
+      return `O ${this.name} está em movimento`
     },
     stop () {
-      this.isRunning(false)
-      console.log(`O ${this.name} está parado`)
+      this.isRunning = false
+      return `O ${this.name} está parado`
     },
     getColorsMessage () {
-      console.log(`O ${this.name} está disponível nas cores ${this.colors[0]}, ${this.colors[1]} e ${this.colors[2]}`)
+      const lastItem = this.colors[this.colors.length - 1]
+      const colors = this.colors.join(', ').replace(`, ${lastItem}`, ` e ${lastItem}`)
+      return `O ${this.name} está disponível nas cores ${colors}`
     }
   }
 
@@ -68,21 +70,23 @@
 
   - Faça o carro andar e exiba no console se ele realmente está em movimento.
 */
-  car.run()
+  console.log(car.run())
+  console.log('Carro está andando?', car.isRunning === true)
 
 /*
   05
 
   - Faça o carro parar e exiba no console se ele realmente está parado.
 */
-  car.stop()
+console.log(car.stop())
+console.log('Carro está parado?', car.isRunning === false)
 
 /*
   06
 
   - Exiba, no console, a mensagem com as cores do carro.
 */
-  car.getColorsMessage()
+console.log(car.getColorsMessage())
 
 /*
   07
