@@ -1,5 +1,5 @@
-// VARIÁVEIS E ESCOPO DE BLOCO
-    /* TIPOS DE DECLARAÇÕES:
+/* VARIÁVEIS E ESCOPO DE BLOCO
+    TIPOS DE DECLARAÇÕES:
         - VAR   >> Forma antiga, ela não respeita escopo de bloco, por isso é perigoso usá-la.
         - LET   >> Forma nova, respeita escopo de bloco. Pode ser lida e reescrita (mutável).
         - CONST >> Cria-se uma constante, respeita escopo de bloco. Pode ser lida apenas (imutável).
@@ -43,5 +43,41 @@
         }
     }
     funcaoExemplo2()
-    console.log(`Ex_2 - Sou um log na raiz e apresento erro, pois age2 (${age2}),foi criada dentro de um bloco e NÃO TENHO ACESSO.`)
+    // console.log(`Ex_2 - Sou um log na raiz e apresento erro, pois age2 (${age2}),foi criada dentro de um bloco e NÃO TENHO ACESSO.`)
 
+    
+/* USO DO THIS 
+    THIS é um objeto de contexto e seu valor muda de acordo com o local onde ele está (raiz ou bloco)
+    Em um OBJETO
+        o THIS vai fazer referência ao objeto, se dentro de um objeto ou dentro de uma function declaration que está no objeto.
+        observação - Se dentro do objeto tiver uma arrow function e usar o this nesta arrow function ele fará referência à raiz, 
+            mas se for uma function declarion o this fará referência ao objeto.
+    
+    na RAIZ
+        Aqui o THIS fará referência ao objeto windows do navegador. Assim como se eu tiver um objeto e dentro desse objeto tiver
+            uma arrow function o THIS fará referência ao window também.
+    
+    shortcurt para funções dentro do obejto
+        
+        As function declarations podem ser declaradas de duas formas dentro de um objeto:
+        1 - login: function () {console.log('logado')}
+        2 - login () {console.log('logado')} 
+            o 2 é um shortcurt, com ele não precisamos colocar os dois ponto ':' nem a palavra reservada function.
+*/
+
+    const user = {
+        name: 'gabriel',
+        age: 30,
+        email: 'gabriel@gabriel.com.br',
+        city: 'PP',
+        blogPosts: ['post 1', 'post 2', 'post 3'],
+        login () {console.log('Usuário logado')},
+        logout () {console.log('Usuário deslogado')},
+        logBlogPosts () {
+            console.log(`${this.name} escreveu ${this.blogPosts.length} posts:`)
+            this.blogPosts.forEach(post => console.log(post))
+        } 
+    }
+
+    user.logBlogPosts()
+    user.login()
