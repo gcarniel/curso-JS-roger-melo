@@ -12,9 +12,12 @@ const getCatInfo = () => {
   const name = 'Marcos'
   let age = 3
   const color = 'Cinza'
-  return `${name} é um gato ${color} de ${age} anos.`
+  // return {name: name, age: age, color: color}
+  return {name, age, color} //se o nome da propriedade e o valor tiver o mesmo nome, podemos informar apenas 1 vez.
 }
-  console.log(getCatInfo())
+  const { name, age, color } = getCatInfo() //fazendo o destructuring assignment - desestruturando o retorno da função.
+
+  console.log(`${name} é um gato ${color} de ${age} anos.`)
 
 /*
   02
@@ -64,7 +67,9 @@ let crazyArray = [
   [ 5, 96, 53  ]
 ]
 crazyArray.shift()
-console.log(crazyArray[0]())
+console.log(crazyArray)
+
+
 /*
   05
 
@@ -79,10 +84,10 @@ const dogs = [
   { name: 'Zé', age: 2, gender: 'Male', breed: 'Pug' },
   { name: 'Jade', age: 4, gender: 'Female', breed: 'Shiba inu' },
   { name: 'Zequinha', age: 7, gender: 'Male', breed: 'Poodle' },
-  { name: 'Xica', age: 6, gender: 'Female', breed: 'Chihuahua' }
+  { name: 'Xica', age: 6, gender: 'Female', breed: 'Chihuahua' },
 ]
 
-  const findZequinha = dog => dog.name === 'Zequinha'
+  const findZequinha = dog => dog.name.toUpperCase() === 'ZEQUINHA'
   console.log(dogs.find(findZequinha))
 
 /*
@@ -116,7 +121,7 @@ const dogs = [
     </article>
   </section>
 */
-  const title = document.querySelector('.main-title')
+  const title = document.querySelector('.main-title') // (.) refere-se a classe | (#) refere-se a id
   console.log(title)
 
 /*
