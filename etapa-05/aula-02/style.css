@@ -1,0 +1,19 @@
+body {
+    background-color: rgb(131, 127, 127);
+    color: aliceblue;
+    font-size: large;
+}
+
+.error {
+    padding: 10px;
+    color: crimson;
+    border: 1px dotted crimson;
+    background-color: rgb(216, 170, 179);
+}
+
+.success {
+    padding: 10px;
+    color: green;
+    border: 1px dotted green;
+    background-color: rgb(145, 184, 145);
+}
