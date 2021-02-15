@@ -17,10 +17,12 @@
 
   const numbers = [ 53, 24, 3, 8, 1, 6, 57, 80, 77, 98, 55 ]
   const ul = document.querySelector('.numbers')
-  numbers.forEach(n => {
-    // console.log(n)
-    ul.innerHTML += `<li>${n}</li>`
-  })
+
+  const insertNumberIntoUl = n => {
+    ul.innerHTML += `<li class="number">${n}</li>`
+  }
+
+  numbers.forEach(insertNumberIntoUl)
 
 /*
   03
@@ -31,18 +33,18 @@
 */
 
   
-  const lis = document.querySelectorAll('li')
-  lis.forEach(li => {
-    const numLi = Number(li.textContent)
-    const isOdd = numLi % 2 === 1
+  const lis = document.querySelectorAll('.number')
+  const changeLiColor = li => {
+    const isOdd = Number(li.textContent) % 2 === 1
 
     if (isOdd){
-      console.log(li.textContent)
       li.style.color = 'pink'
     }else {
       li.style.color = 'lightblue'
     }
-  })
+  }
+
+  lis.forEach(changeLiColor)
 
 
 /*
@@ -53,7 +55,10 @@
   P.s: a classe "body-background" já está declarada no style.css.
 */
 
-  const body = document.querySelector('body')
+  // const body = document.querySelector('body')
+  const body = document.body
+  // as duas formas funcionam para pegar o body
+
   // body.setAttribute('class', 'body-background')
   body.classList.add('body-background')
   // as duas formas funcionam
@@ -77,6 +82,7 @@
   - Exiba o novo valor do atributo href do link no console.
 */
   console.log(link.href)
+  console.log(link.getAttribute('href'))
 
 
 /*
@@ -85,7 +91,7 @@
   - Exiba, no console, um objeto com todas as propriedades CSS que podem ser  
     manipuladas via JS no h1.
 */
-  console.log(h1.classList)
+  console.log(h1.style)
 
 
 /*
