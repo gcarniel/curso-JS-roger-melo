@@ -6,10 +6,15 @@
   - Exiba no console os elementos filhos da ul com a classe já inserida.
 */
   const ul = document.querySelector('ul')
-  Array.from(ul.children).forEach(li => {
+  const lisAdd = Array.from(ul.children)
+
+  const insertVideoClass = li => {
     li.classList.add('video')
-  })
-  console.log(ul)
+  }
+
+  lisAdd.forEach(insertVideoClass)
+
+  console.log('01-', ul)
   console.log('\n')
 
 
@@ -21,7 +26,7 @@
     e exiba-o no console;
 */
   const h2 = document.querySelector('h2')
-  console.log(h2.parentElement)
+  console.log('02-', h2.parentElement)
   console.log('\n')
 
 
@@ -32,7 +37,7 @@
   - Descubra quem é o próximo elemento irmão do h1 e exiba-o no console;
 */
   const h1 = document.querySelector('h1')
-  console.log(h1.nextElementSibling)
+  console.log('03-', h1.nextElementSibling)
   console.log('\n')
 
 
@@ -42,7 +47,7 @@
 
   - Descubra quem é o irmão anterior da ul e exiba-o no console;
 */
-  console.log(ul.previousElementSibling)
+  console.log('04-', ul.previousElementSibling)
   console.log('\n')
 
 
@@ -54,12 +59,17 @@
     exibida no console.
 */
   const lis = document.querySelectorAll('li')
-  lis.forEach(li => {
-    li.addEventListener('click', event => {
-      console.log(event.target)
-    })
-  })
-  console.log(lis)
+
+  const showClickedLi = event => {
+    console.log(event.target)
+  }
+
+  const addClickEvent = li => {
+    li.addEventListener('click', showClickedLi)
+  }
+
+  lis.forEach(addClickEvent)
+  console.log('05-', lis)
 
 
 /*
@@ -81,13 +91,23 @@ const videos = [{
 }]
 
 const button = document.querySelector('button')
-button.addEventListener('click', () => {
-  videos.forEach(video => {
-    const li = document.createElement('li')
-    li.textContent = video.name
-    ul.append(li)
-  })
-})
+
+const addClickButton = () => {
+  videos.forEach(createLi)
+}
+
+const createLi = ({ name }) => {
+
+  //pode criar as li assim
+  // const li = document.createElement('li')
+  // li.textContent = name
+  // ul.append(li)
+
+  //ou assim
+  ul.innerHTML += `<li>${name}</li>`
+}
+
+button.addEventListener('click', addClickButton)
 
 /*
   07
@@ -95,13 +115,20 @@ button.addEventListener('click', () => {
   - Se um clique no h1 acontecer, faça com que todos os elementos dentro do body 
     sejam removidos.
 */
+  const body = document.querySelector('body')
+
+// correção da aula
   h1.addEventListener('click', () => {
-    const li = document.querySelector('li')
-    const body = document.querySelector('body')
-    for(let i = 0; i < body.childElementCount; i++){
-      body.remove(i)
-    }
+    body.innerHTML = ''
   })
+
+// como eu fiz
+  // h1.addEventListener('click', () => {
+  //   const li = document.querySelector('li')
+  //   for(let i = 0; i < body.childElementCount; i++){
+  //     body.remove(i)
+  //   }
+  // })
 
 
 
