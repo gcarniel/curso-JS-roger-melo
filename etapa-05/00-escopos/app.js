@@ -7,7 +7,7 @@ TIPOS DE ESCOPO
         mas as funções de dentro terão acesso.
     
     -Bloco >> LET e CONST ficam "presas" na função, ou seja, a raiz não tem acesso, 
-        mas as funções de dentro terão acesso. Já VAR dentro de um bloco é vazado, então a raiz tem acesso.
+        mas as funções de dentro terão acesso. Já VAR dentro de um bloco é "vazado", então a raiz tem acesso.
 
     -Léxico >> Funções aninhadas quando não tem variáveis declaradas em seu escopo vão buscar as declarações em escopos acima.
         Mas é sempre de dentro pra fora.

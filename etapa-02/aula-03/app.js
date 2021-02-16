@@ -19,7 +19,7 @@
 // 03-03
     // BREAK e CONTINUE - usamos eles dentro de loops.
     //  break serve para darmos uma parada e sair do loop, finaliza o loop.
-    //  continue serve para sairmos do ponto atual e ir ao ponto de inicio do loop, então finaliza o loop.
+    //  continue serve para sairmos do ponto atual e ir ao ponto de inicio do loop, então incrementa o loop.
 
     const scores = [50, 25, 0, 30 , 100, 20, 10]
 

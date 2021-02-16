@@ -6,9 +6,9 @@ console.log(nome === 'gabriel')
 console.log(nome === 'Gabriel')
 
 console.log('z' > 'b')
-console.log('a > A: ', 'a' > 'A') //letras minusculas sempre sao menores que as maiusculas
+console.log('a > A: ', 'a' > 'A') //letras minusculas sempre sao 'maiores' que as maiusculas
 
-console.log('A > a: ', 'A' > 'a') //letras maiusculas sempre sao menores que as minusculas
+console.log('A > a: ', 'A' > 'a') //letras maiusculas sempre sao 'menores' que as minusculas
 
 
 // == - ao comparar (==) o JS faz conversão de tipos, por isso 30 é igual a '30'

@@ -19,6 +19,12 @@ lis.forEach(li => {
         // clickedElement.style.textDecoration = 'line-through'
         clickedElement.remove()
     })
+    li.addEventListener('mousemove', event => {
+        event.target.style.color = 'red'
+    })
+    li.addEventListener('mouseout', event => {
+        event.target.style.color = ''
+    })
 })
 
 

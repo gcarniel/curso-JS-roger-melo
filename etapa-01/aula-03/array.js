@@ -25,6 +25,6 @@
     heroes.push('Spider Man', 'Hulk')
     console.log('push: ', heroes)
 
-    // POP - Remove o ultimo ele do array - é mutável
+    // POP - Remove o ultimo elemento do array - é mutável
     heroes.pop()
     console.log('pop: ', heroes)

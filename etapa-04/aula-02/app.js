@@ -1,16 +1,16 @@
 /* VARIÁVEIS E ESCOPO DE BLOCO
     TIPOS DE DECLARAÇÕES:
-        - VAR   >> Forma antiga, ela não respeita escopo de bloco, por isso é perigoso usá-la.
-        - LET   >> Forma nova, respeita escopo de bloco. Pode ser lida e reescrita (mutável).
-        - CONST >> Cria-se uma constante, respeita escopo de bloco. Pode ser lida apenas (imutável).
+        - VAR   >> Forma antiga, ela não respeita escopo de bloco, em escopo de função ela fica 'presa', por isso é perigoso usá-la.
+        - LET   >> Forma nova, respeita escopo de bloco e função. Pode ser lida e reescrita (mutável).
+        - CONST >> Cria-se uma constante, respeita escopo de bloco e função. Pode ser lida apenas (imutável).
 
-    Escopo de bloco - Se uma LET ou CONST for criada na raiz do documento os blocos terão acesso a ela,
+    Escopo de bloco - Se uma LET ou CONST forem criada na raiz do documento os blocos terão acesso a ela,
         mas se forem criadas dentro de algum bloco a raiz não terá acesso, porém se houver blocos "filhos"
         do bloco de criação eles terão acesso.
 
         Veja que há uma hierarquia. Como se fosse uma grandeza do maior ao menor, sendo a raiz o maior.
 
-        Variáveis criadas da raiz os blocos acessam, variáveis criadas em blocos apenas eles e blocos internos 
+        Variáveis criadas na raiz os blocos acessam, variáveis criadas em blocos apenas eles e blocos internos 
         terão acesso. Se criar em uma variável dentro de um bloco que está dentro de outro bloco só o interno
         tem acesso à variável e assim segue.
     */
@@ -54,12 +54,12 @@
             mas se for uma function declarion o this fará referência ao objeto.
     
     na RAIZ
-        Aqui o THIS fará referência ao objeto windows do navegador. Assim como se eu tiver um objeto e dentro desse objeto tiver
+        Aqui o THIS fará referência ao objeto window do navegador. Assim como se eu tiver um objeto e dentro desse objeto tiver
             uma arrow function o THIS fará referência ao window também.
     
     shortcurt para funções dentro do obejto
         
-        As function declarations podem ser declaradas de duas formas dentro de um objeto:
+        Function declaration podem ser declaradas de duas formas dentro de um objeto:
         1 - login: function () {console.log('logado')}
         2 - login () {console.log('logado')} 
             o 2 é um shortcurt, com ele não precisamos colocar os dois ponto ':' nem a palavra reservada function.

@@ -52,7 +52,7 @@
         userTwo.age = 12
 
         console.log(userOne, userTwo)
-        // como são valores por referência (é passado referência da memória), ao atribuir um objeto ao outro eles compartilham
+        // como são valores por referência (é passado referência da memória), ao atribuir um objeto a outro eles compartilham
         // seu endereço, é por isso que ao trocar qualquer propriedade de um afeta o outro.
 
 
