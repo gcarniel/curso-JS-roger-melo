@@ -4,23 +4,33 @@
   - No envio do form, faça com que a página não seja recarregada.
 */
   const form = document.querySelector('form')
-  const submitFormIsMatch = event => {
-    // const pattern = /.{7,}/ 
-    const pattern = /[a-zA-Z0-9]{7,11}/
-    const inputValue = form.input.value
-    const isMatch = pattern.test(inputValue)
-    event.preventDefault()
-    // console.log(inputValue)
 
-    if(isMatch){
-      console.log('O valor inserido no input é válido =)')
-    }else {
-      console.log('Valor inválido =(')
-    }
-
+  const clearInput = () => {
+    input.value = ''
+    input.focus()
   }
 
-  form.addEventListener('submit', submitFormIsMatch)
+  const logMessage = message => {
+    console.log(message)
+    clearInput()
+  }
+
+  const handleSubmit = event => {
+    // const regex = /.{7,}/ 
+    const regex = /[a-zA-Z0-9]{7,11}/
+    const input = form.input
+    const isMatch = regex.test(input.value)
+    event.preventDefault()
+    // console.log(input.value)
+
+    if(isMatch){
+      logMessage('O valor inserido no input é válido =)')
+      return
+    }
+    logMessage('Valor inválido =(')
+  }
+
+  form.addEventListener('submit', handleSubmit)
 /*
   02
 
@@ -35,8 +45,9 @@
     index.html;
   - Exiba no console o boolean no qual este teste resulta.
 */
-  const pattern = /[a-z]/ 
-  const result = pattern.test('documentation')
+  const p = document.querySelector('p')
+  const regex = /documentation/ 
+  const result = regex.test(p.textContent)
   console.log('03', result)
 
 /*
@@ -47,10 +58,10 @@
   - Teste se o match aconteceu e exiba o resultado no console.
 */
 
-const pattern2 = /[A-Z0-9]{3,}/
+const B99Regex = /[A-Z0-9]{3}/
 const B99message = 'E o Terry Crews faz tudo, inclusive tocar a abertura de B99 na flauta'
-const result2 = pattern2.test(B99message)
-console.log('04', result2)
+const B99Result = B99Regex.test(B99message)
+console.log('04', B99Result)
 
 /*
   05
