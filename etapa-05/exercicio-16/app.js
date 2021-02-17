@@ -8,21 +8,25 @@
 const div = document.querySelector('div')
 const elementsInsideDiv = Array.from(div.children)
 const h2 = document.querySelector('h2')
+const divEgg = document.querySelector('.egg')
+const button = document.querySelector('button')
 
-elementsInsideDiv.forEach(element => {
-  element.addEventListener('click', (event) => {
-    event.stopPropagation()
-    // console.log('Clicou no filho da div.')
-    console.log(`Clicou no ${element.tagName.toLowerCase()}, filho da div.`)
-    h2.innerHTML = `Clicou no ${element.tagName.toLowerCase()}, filho da div.`
-  })
-})
+const showClickedElement = ({ target }) => {
+  const clickedElementName = target.tagName.toLowerCase()
+  if(clickedElementName === 'div'){
+    h2.textContent = 'Clicou na div.'
+    return
+  }
+  // console.log('Clicou na div.')
+  h2.innerHTML = `Clicou no ${clickedElementName}, filho da div.`
+}
 
-div.addEventListener('click', () => {
-  console.log('Clicou na div.')
-  h2.innerHTML = 'Clicou na div.'
-})
-
+  const showCoordinates = ({ offsetX, offsetY }) => divEgg.textContent = `Eixo X: ${offsetX} | Eixo Y: ${offsetY}`
+  const changeEggColor = () => divEgg.style.background = 'lightgoldenrodyellow'
+  div.addEventListener('click', showClickedElement)
+  h2.addEventListener('copy', () => console.log('Texto de H2 copiado!'))
+  divEgg.addEventListener('mousemove', showCoordinates)
+  button.addEventListener('click',changeEggColor)
 /*
   02
 
@@ -46,19 +50,14 @@ div.addEventListener('click', () => {
   - Faça com que quando o texto do h2 for copiado, a mensagem "Texto copiado!"  
     seja exibida no console.
 */
-  h2.addEventListener('copy', () => console.log('Texto de H2 copiado!'))
 
 /*
-  05
+05
 
-  - Faça com que o movimento do mouse dentro da div com a classe "egg" substitua
-    o texto que ela tem por 
-    "Eixo X: COORDENADA_EIXO_X | Eixo Y: COORDENADA_EIXO_Y".
+- Faça com que o movimento do mouse dentro da div com a classe "egg" substitua
+o texto que ela tem por 
+"Eixo X: COORDENADA_EIXO_X | Eixo Y: COORDENADA_EIXO_Y".
 */
-  const divEgg = document.querySelector('.egg')
-  divEgg.addEventListener('mousemove', event => {
-    divEgg.textContent = `Eixo X: ${event.offsetX} | Eixo Y: ${event.offsetY}`
-  })
 
 /*
   06
@@ -67,10 +66,9 @@ div.addEventListener('click', () => {
     clicado.
 */
 
-  const button = document.querySelector('button')
-  button.addEventListener('click', () => {
-    divEgg.style.background = 'lightgoldenrodyellow'
-  })
+
+
+
 
 /*
   07
@@ -93,9 +91,8 @@ const people = [
   { id: 9, name: 'Hamilton Silva', profession: 'Advogado' }
 ]
 
-people.some(({ profession }) => {
-  if(profession === 'Front-end developer'){
+const isSomePersonFrontendDeveloper = people.some(({ profession }) => profession === 'Front-end developer')
+
+if(isSomePersonFrontendDeveloper){
     console.log('O array people contém, no mínimo, um(a) Front-end developer.')
   }
-  
-})
