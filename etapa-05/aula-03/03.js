@@ -3,7 +3,7 @@ title.innerText = 'Anotações Etapa 05 - Aula 03-03'
 
 /*
     addEventListener() - Este método vai 'escutar' um determinado evento que é passado como primeiro argumento
-                         Já o segundo argumento deve ser uma callbak que irá executar a ação do evento.
+                         Já o segundo argumento deve ser uma callbak que irá executar a ação do evento.                         
 */
 
 
@@ -13,12 +13,14 @@ const ul = document.querySelector('ul')
 
 const lis = document.querySelectorAll('li')
 lis.forEach(li => {
-    li.addEventListener('click', event => {
-        const clickedElement = event.target
+    // li.addEventListener('click', event => {
+    //     const clickedElement = event.target
 
-        // clickedElement.style.textDecoration = 'line-through'
-        clickedElement.remove()
-    })
+    //     // clickedElement.style.textDecoration = 'line-through'
+    //     console.log('clicou na li')
+    //     // event.stopPropagation() // não vai mais propagar eventos no elemento pai
+    //     // clickedElement.remove()
+    // })
     li.addEventListener('mousemove', event => {
         event.target.style.color = 'red'
     })
@@ -31,8 +33,17 @@ lis.forEach(li => {
 const button = document.querySelector('button')
 button.addEventListener('click', () => {
     const li = document.createElement('li')
+    const newItem = document.querySelector('#item')
 
-    li.textContent = 'Novo item'
+    li.textContent = newItem.value
+    newItem.value = ''
+    li.addEventListener('mousemove', event => {
+        event.target.style.color = 'red'
+    })
+    li.addEventListener('mouseout', event => {
+        event.target.style.color = ''
+    })
     // ul.append(li) //append insere o elemento passado (li) por argumento como ultimo filho do elemento encadeado, no caso ul
     ul.prepend(li) //append insere o elemento passado (li) por argumento como primeiro filho do elemento encadeado, no caso ul
 })
+

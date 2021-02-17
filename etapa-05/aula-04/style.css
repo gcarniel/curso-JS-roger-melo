@@ -1,0 +1,15 @@
+body {
+    background-color: rgb(131, 127, 127);
+    color: aliceblue;
+    font-size: large;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    margin: 10px 0;
+    background: #eee;
+    text-align: center;
+    padding: 20px;
+    color: black;
+}

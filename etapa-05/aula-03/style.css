@@ -17,3 +17,15 @@ li {
     background: #eee;
     border: 1px dotted #ddd;
 }
+
+button {
+    color: green;
+    height: 30px;
+    border: 1px;
+    border-radius: 10px;
+}
+
+#item {
+    height: 30px;
+    width: 210px;
+}
