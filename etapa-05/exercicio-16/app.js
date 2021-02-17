@@ -7,15 +7,20 @@
 
 const div = document.querySelector('div')
 const elementsInsideDiv = Array.from(div.children)
+const h2 = document.querySelector('h2')
 
 elementsInsideDiv.forEach(element => {
-  element.addEventListener('click', () => {
-    console.log('Clicou no filho da div.')
+  element.addEventListener('click', (event) => {
+    event.stopPropagation()
+    // console.log('Clicou no filho da div.')
+    console.log(`Clicou no ${element.tagName.toLowerCase()}, filho da div.`)
+    h2.innerHTML = `Clicou no ${element.tagName.toLowerCase()}, filho da div.`
   })
 })
 
 div.addEventListener('click', () => {
   console.log('Clicou na div.')
+  h2.innerHTML = 'Clicou na div.'
 })
 
 /*
@@ -25,6 +30,7 @@ div.addEventListener('click', () => {
     exibida no console seja "Clicou no NOME_DA_TAG_COM_LETRAS_MINÚSCULAS, filho
     da div.".
 */
+  
 
 /*
   03
@@ -40,6 +46,7 @@ div.addEventListener('click', () => {
   - Faça com que quando o texto do h2 for copiado, a mensagem "Texto copiado!"  
     seja exibida no console.
 */
+  h2.addEventListener('copy', () => console.log('Texto de H2 copiado!'))
 
 /*
   05
@@ -48,6 +55,10 @@ div.addEventListener('click', () => {
     o texto que ela tem por 
     "Eixo X: COORDENADA_EIXO_X | Eixo Y: COORDENADA_EIXO_Y".
 */
+  const divEgg = document.querySelector('.egg')
+  divEgg.addEventListener('mousemove', event => {
+    divEgg.textContent = `Eixo X: ${event.offsetX} | Eixo Y: ${event.offsetY}`
+  })
 
 /*
   06
@@ -55,6 +66,11 @@ div.addEventListener('click', () => {
   - Modifique a cor do ovo para "lightgoldenrodyellow" quando o botão for 
     clicado.
 */
+
+  const button = document.querySelector('button')
+  button.addEventListener('click', () => {
+    divEgg.style.background = 'lightgoldenrodyellow'
+  })
 
 /*
   07
@@ -76,3 +92,10 @@ const people = [
   { id: 8, name: 'Matheus Manucci', profession: 'Piloto' },
   { id: 9, name: 'Hamilton Silva', profession: 'Advogado' }
 ]
+
+people.some(({ profession }) => {
+  if(profession === 'Front-end developer'){
+    console.log('O array people contém, no mínimo, um(a) Front-end developer.')
+  }
+  
+})
