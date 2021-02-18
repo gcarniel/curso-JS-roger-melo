@@ -2,6 +2,30 @@
   Apenas 3 exercícios, mas que exigem um certo nível de conhecimento do que  
   vimos até aqui =)
 */
+  const form = document.querySelector('form')
+  const paragraph = document.createElement('p')
+  const input = document.querySelector('input')
+  input.insertAdjacentElement('afterend', paragraph)
+
+  const isAValidUsername = () => {
+    const usernameIsValid = testUsername(form.username.value)
+
+    if(usernameIsValid){
+      paragraph.setAttribute('class', 'username-success-feedback')
+      paragraph.textContent = 'Username válido =)'
+      return
+    }
+    paragraph.setAttribute('class', 'username-help-feedback')
+    paragraph.textContent = 'O valor deve conter no mínimo 6 caracteres, com apenas letras maiúsculas e/ou minúsculas'
+  }
+
+  const testUsername = username => {
+    const usernameRegex = /[a-zA-Z]{6,}/
+    return usernameRegex.test(username)
+  }
+
+  form.username.addEventListener('keyup', isAValidUsername)
+
 
 /*
   01
@@ -33,6 +57,29 @@
   - Não insira o parágrafo manualmente no index.html.
 */
 
+  const button = document.querySelector('button')
+  const pFeedback = document.createElement('p')
+  button.insertAdjacentElement('afterend', pFeedback)
+
+  const feedbackSubmit = event => {
+    event.preventDefault()
+    const usernameIsValid = testUsername(event.target.username.value)
+
+    if(usernameIsValid) {
+      messageChange('Dados enviados =)')
+      return
+    }
+    messageChange('Por favor, insira um username válido','help')
+  }
+
+  const messageChange = (message, type = 'success') => {
+    const p = button.nextElementSibling
+    p.textContent = message
+    p.setAttribute('class', `submit-${type}-feedback`)
+  }
+
+  form.addEventListener('submit', feedbackSubmit)
+
 /*
   03
 
@@ -53,3 +100,20 @@
   Spoiler alert: este tipo de exercício será frequente em etapas mais avançadas  
   do curso, onde falaremos sobre TDD. Vá se aquecendo =D
 */
+
+const mySome = (array, func) => {
+  for(let i = 0; i < array.length; i++){
+    // console.log(array[i])
+    if(func(array[i])){
+      return true
+    }
+  }
+  return false
+}
+
+const array1 = [1, 2, 3]
+const array2 = [1, 3, 5]
+
+
+console.log(mySome(array1, a => a > 2))
+console.log(mySome(array2, a => a === 0))
