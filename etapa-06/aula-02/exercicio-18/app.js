@@ -5,26 +5,61 @@
   const form = document.querySelector('form')
   const paragraph = document.createElement('p')
   const input = document.querySelector('input')
+  const button = document.querySelector('button')
+
   input.insertAdjacentElement('afterend', paragraph)
 
-  const isAValidUsername = () => {
-    const usernameIsValid = testUsername(form.username.value)
-
-    if(usernameIsValid){
-      paragraph.setAttribute('class', 'username-success-feedback')
-      paragraph.textContent = 'Username válido =)'
-      return
+  const paragraphRemove = () => {
+    const paragraphSubmitExists = document.querySelector('[data-feedback="submit-feedback"]')
+    if(paragraphSubmitExists){
+      paragraphSubmitExists.remove()
     }
-    paragraph.setAttribute('class', 'username-help-feedback')
-    paragraph.textContent = 'O valor deve conter no mínimo 6 caracteres, com apenas letras maiúsculas e/ou minúsculas'
   }
 
   const testUsername = username => {
-    const usernameRegex = /[a-zA-Z]{6,}/
+    const usernameRegex = /^[a-zA-Z]{6,}$/
+    console.log(usernameRegex.test(username))
     return usernameRegex.test(username)
   }
 
-  form.username.addEventListener('keyup', isAValidUsername)
+  const messageChange = (paragraph, message, className) => {
+    paragraph.textContent = message
+    paragraph.setAttribute('class', className)
+  }
+
+  const showUsernameInfo = () => {
+    const usernameIsValid = testUsername(form.username.value)
+
+    paragraphRemove()
+
+    if(usernameIsValid){
+      messageChange(paragraph, 'Username válido =)', 'username-success-feedback')
+      return
+    }
+    messageChange(paragraph, 'O valor deve conter no mínimo 6 caracteres, com apenas letras maiúsculas e/ou minúsculas', 'username-help-feedback')
+  }
+
+
+
+  const showUsernameSubmit = event => {
+    event.preventDefault()
+    const pFeedback = document.createElement('p')
+    pFeedback.setAttribute('data-feedback', 'submit-feedback')
+    button.insertAdjacentElement('afterend', pFeedback)
+    
+    const usernameIsValid = testUsername(event.target.username.value)
+    const p = button.nextElementSibling
+
+    if(usernameIsValid) {
+      messageChange(p, 'Dados enviados =)','submit-success-feedback')
+      return
+    }
+    messageChange(p,'Por favor, insira um username válido','submit-help-feedback')
+  }
+
+  form.username.addEventListener('input', showUsernameInfo)
+  form.addEventListener('submit', showUsernameSubmit)
+
 
 
 /*
@@ -56,29 +91,6 @@
   - Use as classes disponíveis no arquivo style.css para colorir o parágrafo;
   - Não insira o parágrafo manualmente no index.html.
 */
-
-  const button = document.querySelector('button')
-  const pFeedback = document.createElement('p')
-  button.insertAdjacentElement('afterend', pFeedback)
-
-  const feedbackSubmit = event => {
-    event.preventDefault()
-    const usernameIsValid = testUsername(event.target.username.value)
-
-    if(usernameIsValid) {
-      messageChange('Dados enviados =)')
-      return
-    }
-    messageChange('Por favor, insira um username válido','help')
-  }
-
-  const messageChange = (message, type = 'success') => {
-    const p = button.nextElementSibling
-    p.textContent = message
-    p.setAttribute('class', `submit-${type}-feedback`)
-  }
-
-  form.addEventListener('submit', feedbackSubmit)
 
 /*
   03
@@ -115,5 +127,5 @@ const array1 = [1, 2, 3]
 const array2 = [1, 3, 5]
 
 
-console.log(mySome(array1, a => a > 2))
-console.log(mySome(array2, a => a === 0))
+console.log(mySome(array1, item => item > 2))
+console.log(mySome(array2, item => item === 0))
