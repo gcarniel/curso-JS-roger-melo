@@ -5,7 +5,8 @@ Seu desafio é desenvolver uma versão do quiz que:
 
 - Aborda um tema diferente (não pode ser de filmes);
 - Tem um tema de cores diferente do que foi apresentado na aula;
-- Exibe na tela a pontuação que o usuário fez. Não há certo ou errado, apenas faça. Essa exibição de pontos é uma das implementações que faremos na próxima aula =D
+- Exibe na tela a pontuação que o usuário fez. Não há certo ou errado, apenas faça. 
+    Essa exibição de pontos é uma das implementações que faremos na próxima aula =D
 
 Independente se você já fez o quiz dos filmes enquanto acompanhava a aula, tente fazer esse exercício sem rever partes da aula.
 
@@ -21,3 +22,27 @@ Link do repositório do curso: https://github.com/roger-melo-treinamentos/curso-
 
 Ps: se você não conseguiu fazer tudo o que foi pedido acima, abra a issue mesmo assim =)
 */
+
+const correctAnswers = ['C', 'C', 'C', 'B']
+
+const form = document.querySelector('form')
+const p = document.querySelector('.result')
+
+form.addEventListener('submit', event => {
+    event.preventDefault()
+    let score = 0
+    const userAnswers = [
+        form.inputQuestion1.value,
+        form.inputQuestion2.value,
+        form.inputQuestion3.value,
+        form.inputQuestion4.value,
+    ]
+    userAnswers.forEach((answer, index) => {
+        if(answer === correctAnswers[index]){
+            console.log(form.inputQuestion1)
+            score += 25
+        }
+    })
+    p.textContent = `Você fez ${score}/100 pontos.`
+})
+
