@@ -15,8 +15,18 @@ Independente se você já fez o quiz dos filmes enquanto acompanhava a aula, ten
 Depois de fazer o que foi pedido acima, crie um repositório no GitHub para a sua aplicação e abra uma issue no repositório do curso com:
 
 - O link da sua versão do quiz;
+    https://github.com/gcarniel/curso-JS-roger-melo/tree/main/etapa-07/aula-01/exercicio-19
 - Quais foram as suas maiores dúvidas ou dificuldades durante a execução desse exercício;
+    *Para mim a maior dificuldade foi entender como mudar as cores do bootstrap, após ir fuçando e alterando eu entendi 
+        como fazia para alterar, pelo menos, o background e textos.
+    *Comecei a assitir as aulas da etapa 07 então vi a implementação do quiz, por isso não tive dificuldades para verificar 
+        as respostas certas, senão fosse por isso acredito que essa seria a maior dificuldade.
+    *Outra dificuldade que tenho, não foi caso desse exercício, mas é tanto o HTML e mais ainda CSS. Criar o básico eu sei, 
+        maior dificuldade mesmo é organizar na página todas as tags com CSS. 
+
 - Quais foram as suas menores dificuldades durante a execução desse exercício.
+    *Obter elemento através do querySelector foi a menor dificuldade, pois já ficou bastante claro pra mim.
+    *O forEach também é outro ponto que não tenho tido dificuldades.
 
 Link do repositório do curso: https://github.com/roger-melo-treinamentos/curso-de-js-roger-melo/issues
 
