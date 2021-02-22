@@ -33,26 +33,33 @@ Link do repositório do curso: https://github.com/roger-melo-treinamentos/curso-
 Ps: se você não conseguiu fazer tudo o que foi pedido acima, abra a issue mesmo assim =)
 */
 
-const correctAnswers = ['C', 'C', 'C', 'B']
+const correctAnswers = ['C', 'D', 'D', 'C']
 
 const form = document.querySelector('form')
 const p = document.querySelector('.result')
 
-form.addEventListener('submit', event => {
+let score = 0
+
+const scoreAnswers = (answer, index) => {
+    if(answer === correctAnswers[index]){
+        score += 25
+    }
+}
+
+const submitForm = event => {
     event.preventDefault()
-    let score = 0
     const userAnswers = [
         form.inputQuestion1.value,
         form.inputQuestion2.value,
         form.inputQuestion3.value,
         form.inputQuestion4.value,
     ]
-    userAnswers.forEach((answer, index) => {
-        if(answer === correctAnswers[index]){
-            console.log(form.inputQuestion1)
-            score += 25
-        }
-    })
+
+    score = 0
+    userAnswers.forEach(scoreAnswers)
+
     p.textContent = `Você fez ${score}/100 pontos.`
-})
+}
+
+form.addEventListener('submit', submitForm)
 
