@@ -36,7 +36,7 @@ Ps: se você não conseguiu fazer tudo o que foi pedido acima, abra a issue mesm
 const correctAnswers = ['C', 'D', 'D', 'C']
 
 const form = document.querySelector('form')
-const p = document.querySelector('.result')
+const resultScore = document.querySelector('.result')
 
 let score = 0
 
@@ -47,7 +47,9 @@ const scoreAnswers = (answer, index) => {
 }
 
 const submitForm = event => {
+
     event.preventDefault()
+
     const userAnswers = [
         form.inputQuestion1.value,
         form.inputQuestion2.value,
@@ -56,9 +58,27 @@ const submitForm = event => {
     ]
 
     score = 0
+
     userAnswers.forEach(scoreAnswers)
 
-    p.textContent = `Você fez ${score}/100 pontos.`
+    // scrollTo(0,0)
+    scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    })
+
+    resultScore.classList.remove('d-none')
+    
+    let counter = 0
+    
+    const timer = setInterval(() => {
+        if(counter === score){
+            clearInterval(timer)
+        }
+        resultScore.querySelector('span').textContent = `${counter++}%`
+    },50)
+
 }
 
 form.addEventListener('submit', submitForm)
