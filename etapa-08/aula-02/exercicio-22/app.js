@@ -6,9 +6,11 @@
   - Exiba o array ordenado no console.
 */
 
+const getArrayCopy = array => array.map(item => item)
+
 const names = ['Caio', 'André', 'Dário']
-const namesSort = names.sort()
-console.log('01', namesSort)
+const namesSort = getArrayCopy(names).sort()
+console.log('01', namesSort, names)
 
 /*
   02
@@ -24,8 +26,12 @@ const characters = [
   { id: 01, name: 'Scar' },
   { id: 04, name: 'Mufasa' }
 ]
-const charactersSort = characters.sort((a, b) => a.id - b.id)
-console.log('02', charactersSort)
+const charactersSort = characters
+  .map(({ id, name }) => ({ id, name }))
+  .sort((a, b) => a.id - b.id)
+
+console.log('02', charactersSort, characters)
+
 
 /*
   03
@@ -36,7 +42,7 @@ console.log('02', charactersSort)
 */
 
 const numbers = [41, 15, 63, 349, 25, 22, 143, 64, 59, 291]
-const numbersSort = numbers.sort((a,b) => a - b)
+const numbersSort = getArrayCopy(numbers).sort((a,b) => a - b)
 console.log('03', numbersSort)
 
 /*
@@ -46,11 +52,9 @@ console.log('03', numbersSort)
 */
 
 const randomNumbers = [10, 5, 0, 40, 60, 10, 20, 70]
-const result04 = randomNumbers
-  .sort((a, b) => a - b)
-  .find(num => num > 50)
+const numberGreaterThan50 = randomNumbers.find(num => num > 50)
 
-console.log('04',result04)
+console.log('04',numberGreaterThan50)
 
 /*
   05
@@ -61,11 +65,9 @@ console.log('04',result04)
 */
 
 const people = ['Cauã', 'Alfredo', 'Bruno']
-const peopleSort = people
-  .sort()
-  .reverse()
+const peopleSort = getArrayCopy(people).sort().reverse()
 
-console.log('05',peopleSort)
+console.log('05',peopleSort, people)
 
 /*
   06
@@ -76,10 +78,15 @@ console.log('05',peopleSort)
 */
 
 const ingredients = ['vinho', 'tomate', 'cebola', 'cogumelo']
-const result06 = ingredients
-  .map(ingredient => `${ingredient} cozido`)
-  .join(', ')
-console.log('06', result06)
+const cookedIngredients = ingredients.reduce((acc, item, index, array) => {
+  const correctWordGender = /a$/.test(item) ? 'cozida' : 'cozido'
+  const isLastItem = index === array.length - 1
+  const ingredientMessage = acc + `${item} ${correctWordGender}`
+
+  return isLastItem ? ingredientMessage + '.' : ingredientMessage + ', '
+
+}, '')
+console.log('06', cookedIngredients)
 
 /*
   07
@@ -102,8 +109,8 @@ const topBrazilmovies = [
 ]
 
 const totalPersonsViewsDisneyMovies = topBrazilmovies
-  .filter(movie => movie.distributedBy === 'Disney')
-  .reduce((accumalor, item) => accumalor += item.peopleAmount, 0)
+  .filter(({ distributedBy }) => distributedBy === 'Disney')
+  .reduce((acc, { peopleAmount }) => acc + peopleAmount, 0)
 
 console.log('07', totalPersonsViewsDisneyMovies)
 
@@ -128,12 +135,10 @@ const pets = [
 ]
 
 const dogs = pets
-  .filter(pet => pet.type === 'Dog')
-  .map(dog => {
-    dog.age = dog.age * 7
-    return dog
-  })
-console.log('08', dogs)
+  .filter(({ type }) => type === 'Dog')
+  .map(({ name, age, gender, type}) => ({ name, age: age * 7, gender, type }))
+
+console.log('08', dogs, pets)
 
 /*
   09
@@ -143,9 +148,9 @@ console.log('08', dogs)
 */
 
 const ul = document.querySelector('.list-group')
-topBrazilmovies.map(movie => {
-  ul.innerHTML += `<li>${movie.title}</li>` 
-})
+topBrazilmovies.map(({ title })=> {ul.innerHTML += `<li>${title}</li>`})
+// const movieNames = topBrazilmovies.reduce((acc, { title }) => acc + `<li>${title}</li>`, '')
+// ul.innerHTML = movieNames
 
 /*
   10
