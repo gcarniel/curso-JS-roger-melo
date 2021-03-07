@@ -7,6 +7,8 @@
 */
 
 const names = ['Caio', 'André', 'Dário']
+const namesSort = names.sort()
+console.log('01', namesSort)
 
 /*
   02
@@ -22,6 +24,8 @@ const characters = [
   { id: 01, name: 'Scar' },
   { id: 04, name: 'Mufasa' }
 ]
+const charactersSort = characters.sort((a, b) => a.id - b.id)
+console.log('02', charactersSort)
 
 /*
   03
@@ -32,6 +36,8 @@ const characters = [
 */
 
 const numbers = [41, 15, 63, 349, 25, 22, 143, 64, 59, 291]
+const numbersSort = numbers.sort((a,b) => a - b)
+console.log('03', numbersSort)
 
 /*
   04
@@ -40,6 +46,11 @@ const numbers = [41, 15, 63, 349, 25, 22, 143, 64, 59, 291]
 */
 
 const randomNumbers = [10, 5, 0, 40, 60, 10, 20, 70]
+const result04 = randomNumbers
+  .sort((a, b) => a - b)
+  .find(num => num > 50)
+
+console.log('04',result04)
 
 /*
   05
@@ -50,6 +61,11 @@ const randomNumbers = [10, 5, 0, 40, 60, 10, 20, 70]
 */
 
 const people = ['Cauã', 'Alfredo', 'Bruno']
+const peopleSort = people
+  .sort()
+  .reverse()
+
+console.log('05',peopleSort)
 
 /*
   06
@@ -60,6 +76,10 @@ const people = ['Cauã', 'Alfredo', 'Bruno']
 */
 
 const ingredients = ['vinho', 'tomate', 'cebola', 'cogumelo']
+const result06 = ingredients
+  .map(ingredient => `${ingredient} cozido`)
+  .join(', ')
+console.log('06', result06)
 
 /*
   07
@@ -81,6 +101,12 @@ const topBrazilmovies = [
   { title: 'Dona Flor e Seus Dois Maridos', peopleAmount: 10735524, distributedBy: 'Embrafilme' }
 ]
 
+const totalPersonsViewsDisneyMovies = topBrazilmovies
+  .filter(movie => movie.distributedBy === 'Disney')
+  .reduce((accumalor, item) => accumalor += item.peopleAmount, 0)
+
+console.log('07', totalPersonsViewsDisneyMovies)
+
 /*
   08
   
@@ -101,12 +127,25 @@ const pets = [
   { name: 'Chico', age: 6, gender: 'Male', type: 'Dog' }
 ]
 
+const dogs = pets
+  .filter(pet => pet.type === 'Dog')
+  .map(dog => {
+    dog.age = dog.age * 7
+    return dog
+  })
+console.log('08', dogs)
+
 /*
   09
   
   - Considerando o array topBrazilmovies, através do map ou do reduce, insira 
     os nomes dos filmes na ul do index.html.
 */
+
+const ul = document.querySelector('.list-group')
+topBrazilmovies.map(movie => {
+  ul.innerHTML += `<li>${movie.title}</li>` 
+})
 
 /*
   10
