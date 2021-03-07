@@ -4,9 +4,10 @@
   - Exiba no console apenas as letras que a "myString" contém;
   - Não modifique a string manualmente.
 */
+const copyArray = array => array.map(item => item)
 
 const myString = '    JS      '
-
+console.log('01',myString.trim())
 /*
   02
 
@@ -23,6 +24,12 @@ const people = [
   { firstName: 'Eric', lastName: 'Silva', score: 82 }
 ]
 
+const peopleOrdernedAscending = copyArray(people).sort((a, b) => a.score - b.score)
+peopleOrdernedAscending[0].name = 'dunha'
+console.log('02', peopleOrdernedAscending, people)
+
+
+
 /*
   03
 
@@ -34,6 +41,9 @@ const people = [
 */
 
 const animals = ['cão', 'gato', 'boi', 'leão', 'gnu', 'alce', 'ema']
+const animalsContain3LetterInName = copyArray(animals).filter(name => name.length === 3)
+// debugger
+console.log('03',animalsContain3LetterInName)
 
 /*
   04
@@ -41,6 +51,10 @@ const animals = ['cão', 'gato', 'boi', 'leão', 'gnu', 'alce', 'ema']
   - Baseado no array "animals", gere um novo array com a quantidade de letras do 
     nome de cada animal. Ex.: [6, 8, 2].
 */
+
+const amountLettersNamesAnimals = copyArray(animals).map(item => item.length)
+// debugger
+console.log('04', amountLettersNamesAnimals)
 
 
 
@@ -60,6 +74,9 @@ const friends = [
   { id: 5, name: 'Solange', nearMe: false }
 ]
 
+const friendsNearMe = copyArray(friends).filter(friend => friend.nearMe)
+console.log('05', friendsNearMe)
+
 
 
 /*
@@ -70,6 +87,8 @@ const friends = [
 */
 
 const numbers = [46, 86, 212, 29, 51, 9, 25, 42, 81]
+const oddNumbers = numbers.filter(number => number % 2 === 1).reduce((acc, item) => acc + item, 0)
+console.log('06', oddNumbers)
 
 /*
   07
@@ -91,3 +110,9 @@ const data = [{
   country: 'Indonesia',
   population: 263991379
 }]
+
+const dataLessChina = copyArray(data)
+  .filter(({ country }) => country !== 'China')
+  .reduce((acc, { population }) => acc + population, 0)
+
+console.log('07', dataLessChina)
