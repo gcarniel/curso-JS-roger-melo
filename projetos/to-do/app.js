@@ -1,10 +1,12 @@
 const formAddTodo = document.querySelector('.form-add-todo')
+const inputSearch = document.querySelector('.form-search input')
 const toDosContainer = document.querySelector('.todos-container')
 
 formAddTodo.addEventListener('submit', event => {
     event.preventDefault()
 
     const inputValue = event.target.add.value.trim()
+    console.log(event.target)
 
     if(inputValue.length){
         toDosContainer.innerHTML += `
@@ -15,5 +17,13 @@ formAddTodo.addEventListener('submit', event => {
         `
         event.target.reset()
     }
-    
 })
+
+toDosContainer.addEventListener('click', event => {
+    const clickedElement = event.target
+    const containClassDelete = Array.from(clickedElement.classList).includes('delete')
+    if(containClassDelete){
+        clickedElement.parentElement.remove()
+    }
+})
+
