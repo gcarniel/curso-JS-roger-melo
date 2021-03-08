@@ -24,8 +24,10 @@ const people = [
   { firstName: 'Eric', lastName: 'Silva', score: 82 }
 ]
 
-const peopleOrdernedAscending = copyArray(people).sort((a, b) => a.score - b.score)
-peopleOrdernedAscending[0].name = 'dunha'
+const peopleOrdernedAscending = people
+  .map(({ firstName, lastName, score }) => ({firstName, lastName, score}))
+  .sort((a, b) => a.score - b.score)
+
 console.log('02', peopleOrdernedAscending, people)
 
 
@@ -41,7 +43,7 @@ console.log('02', peopleOrdernedAscending, people)
 */
 
 const animals = ['cão', 'gato', 'boi', 'leão', 'gnu', 'alce', 'ema']
-const animalsContain3LetterInName = copyArray(animals).filter(name => name.length === 3)
+const animalsContain3LetterInName = animals.filter(({ length }) => length === 3)
 // debugger
 console.log('03',animalsContain3LetterInName)
 
@@ -52,7 +54,7 @@ console.log('03',animalsContain3LetterInName)
     nome de cada animal. Ex.: [6, 8, 2].
 */
 
-const amountLettersNamesAnimals = copyArray(animals).map(item => item.length)
+const amountLettersNamesAnimals = animals.map(({ length }) => length)
 // debugger
 console.log('04', amountLettersNamesAnimals)
 
@@ -74,8 +76,12 @@ const friends = [
   { id: 5, name: 'Solange', nearMe: false }
 ]
 
-const friendsNearMe = copyArray(friends).filter(friend => friend.nearMe)
-console.log('05', friendsNearMe)
+
+const friendsNearMe = friends
+  .filter(({ nearMe })=> nearMe)
+  .map(({ name })=> name)
+
+console.log('05', friendsNearMe, friends)
 
 
 
@@ -87,7 +93,9 @@ console.log('05', friendsNearMe)
 */
 
 const numbers = [46, 86, 212, 29, 51, 9, 25, 42, 81]
-const oddNumbers = numbers.filter(number => number % 2 === 1).reduce((acc, item) => acc + item, 0)
+const oddNumbers = numbers
+  .filter(number => number % 2 === 1)
+  .reduce((acc, item) => acc + item, 0)
 console.log('06', oddNumbers)
 
 /*
@@ -111,7 +119,7 @@ const data = [{
   population: 263991379
 }]
 
-const dataLessChina = copyArray(data)
+const dataLessChina = data
   .filter(({ country }) => country !== 'China')
   .reduce((acc, { population }) => acc + population, 0)
 
