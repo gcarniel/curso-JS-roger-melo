@@ -6,20 +6,20 @@
 const present = new Date()
 
 console.log(present)
-console.log('Pegando ano:', present.getFullYear())
+console.log('Pegando ano:', present.getFullYear()) // retorna ano com 4 dígitos
 console.log('Pegando mes:', present.getMonth()) // getMonth é base zero, começa do 0, então janeiro é 0
-console.log('Pegando data:', present.getDate())
-console.log('Pegando dia:', present.getDay()) // getDay é base zero, começa do 0, então domingo é 0
+console.log('Pegando dia do mes:', present.getDate()) // retorna o dia do mês e não uma data
+console.log('Pegando dia da semana:', present.getDay()) // getDay é base zero, começa do 0, então domingo é 0
 
 console.log('\n')
 
-console.log('Pegando hora:', present.getHours())
-console.log('Pegando minuto:', present.getMinutes())
-console.log('Pegando segundos:', present.getSeconds())
+console.log('Pegando hora:', present.getHours()) // retorna hora
+console.log('Pegando minuto:', present.getMinutes()) // retorna minutos
+console.log('Pegando segundos:', present.getSeconds()) // retorna segundos
 
 console.log('\n')
 
-console.log('timestamp:', present.getTime())
+console.log('timestamp:', present.getTime()) // retorna o tempo em milisegundos, com ele podemos fazer cálculos com datas
 
 console.log('\n')
 
